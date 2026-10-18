@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.tenantmanagementsystem.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_addTenantFragment"
+            app:destination="@id/addTenantFragment" />
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_viewTenantsFragment"
+            app:destination="@id/viewTenantsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addTenantFragment"
+        android:name="com.example.tenantmanagementsystem.AddTenantFragment"
+        android:label="Add Tenant"
+        tools:layout="@layout/fragment_add_tenant">
+
+        <action
+            android:id="@+id/action_addTenantFragment_to_viewTenantsFragment"
+            app:destination="@id/viewTenantsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewTenantsFragment"
+        android:name="com.example.tenantmanagementsystem.ViewTenantsFragment"
+        android:label="View Tenants"
+        tools:layout="@layout/fragment_view_tenants">
+
+        <argument
+            android:name="newTenant"
+            app:argType="com.example.tenantmanagementsystem.Tenant"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+</navigation>
